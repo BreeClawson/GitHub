@@ -1,0 +1,191 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Digital Infrastructure Checklist — Eloquent Digital</title>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&family=DM+Sans:wght@300;400;500;600&display=swap" rel="stylesheet">
+<style>
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  :root {
+    --sage: #727b5f;
+    --sage-dk: #4d5441;
+    --tan: #d7bda3;
+    --cream: #f5f0e8;
+    --cream-dk: #ede6d6;
+    --mut: #6b6560;
+  }
+  body { background: var(--cream); font-family: 'DM Sans', sans-serif; color: #2d2d2d; }
+
+  .cover {
+    background: linear-gradient(135deg, var(--sage-dk), #3d4436);
+    color: #f5f0e8;
+    padding: 3.5rem 2.5rem 3rem;
+    text-align: center;
+    position: relative;
+  }
+  .cover .stars { font-size: 1.4rem; letter-spacing: .3rem; margin-bottom: 1rem; opacity: .7; }
+  .cover .brand { font-size: .78rem; letter-spacing: .18em; text-transform: uppercase; color: var(--tan); margin-bottom: .8rem; font-weight: 500; }
+  .cover h1 { font-family: 'Playfair Display', serif; font-size: clamp(1.8rem, 5vw, 2.8rem); line-height: 1.2; margin-bottom: .8rem; }
+  .cover .sub { font-size: .95rem; color: rgba(245,240,232,.75); font-weight: 300; max-width: 480px; margin: 0 auto 1.5rem; line-height: 1.7; }
+  .cover .badge { display: inline-block; background: var(--tan); color: var(--sage-dk); font-size: .75rem; font-weight: 700; letter-spacing: .1em; text-transform: uppercase; padding: .4rem 1rem; border-radius: 50px; }
+
+  .intro { background: #fff; padding: 2rem 2.5rem; border-bottom: 1px solid var(--cream-dk); }
+  .intro p { font-size: .92rem; line-height: 1.85; color: var(--mut); max-width: 600px; }
+  .intro p strong { color: var(--sage-dk); }
+
+  .section { padding: 2rem 2.5rem; border-bottom: 1px solid var(--cream-dk); }
+  .section:nth-child(even) { background: #fff; }
+  .section:nth-child(odd) { background: var(--cream); }
+
+  .section-header { display: flex; align-items: center; gap: .75rem; margin-bottom: 1.2rem; }
+  .section-icon { width: 36px; height: 36px; border-radius: 10px; background: var(--sage-dk); display: flex; align-items: center; justify-content: center; font-size: 1rem; flex-shrink: 0; }
+  .section-title { font-family: 'Playfair Display', serif; font-size: 1.1rem; color: var(--sage-dk); font-weight: 700; }
+  .section-num { font-size: .7rem; color: var(--tan); font-weight: 600; letter-spacing: .1em; text-transform: uppercase; }
+
+  .checklist { list-style: none; display: flex; flex-direction: column; gap: .65rem; }
+  .checklist li { display: flex; align-items: flex-start; gap: .75rem; font-size: .88rem; line-height: 1.6; color: #3a3a3a; }
+  .checklist li .box { width: 18px; height: 18px; border: 2px solid var(--tan); border-radius: 4px; flex-shrink: 0; margin-top: 2px; }
+  .checklist li .text { flex: 1; }
+  .checklist li .text strong { color: var(--sage-dk); display: block; font-size: .88rem; }
+  .checklist li .text span { color: var(--mut); font-size: .8rem; font-weight: 300; }
+
+  .tip { background: rgba(114,123,95,.08); border-left: 3px solid var(--sage); border-radius: 0 8px 8px 0; padding: .75rem 1rem; margin-top: 1rem; font-size: .8rem; color: var(--sage-dk); line-height: 1.6; }
+  .tip strong { font-weight: 600; }
+
+  .cta { background: linear-gradient(135deg, var(--sage-dk), #3d4436); color: #f5f0e8; padding: 2.5rem 2.5rem; text-align: center; }
+  .cta h2 { font-family: 'Playfair Display', serif; font-size: 1.5rem; margin-bottom: .6rem; }
+  .cta p { font-size: .88rem; color: rgba(245,240,232,.8); margin-bottom: 1.2rem; line-height: 1.7; font-weight: 300; }
+  .cta .btn { display: inline-block; background: var(--tan); color: var(--sage-dk); font-weight: 700; font-size: .85rem; padding: .75rem 1.8rem; border-radius: 50px; text-decoration: none; letter-spacing: .03em; }
+  .cta .contact { font-size: .78rem; color: rgba(245,240,232,.6); margin-top: .8rem; }
+
+  .footer { background: var(--cream-dk); padding: 1.2rem 2.5rem; text-align: center; font-size: .75rem; color: var(--mut); }
+
+  @media print {
+    .cover { -webkit-print-color-adjust: exact; print-color-adjust: exact; }
+    .cta { -webkit-print-color-adjust: exact; print-color-adjust: exact; }
+    .section-icon { -webkit-print-color-adjust: exact; print-color-adjust: exact; }
+  }
+  @media(max-width:600px) {
+    .cover, .intro, .section, .cta { padding-left: 1.3rem; padding-right: 1.3rem; }
+  }
+</style>
+</head>
+<body>
+
+<div class="cover">
+  <div class="stars">✦ ✦ ✦</div>
+  <div class="brand">Eloquent Digital</div>
+  <h1>Your Digital Infrastructure<br>Checklist</h1>
+  <p class="sub">Everything a small business owner needs to build a solid digital foundation — before spending a dollar on ads.</p>
+  <span class="badge">Free Resource</span>
+</div>
+
+<div class="intro">
+  <p>Before you grow, you need a <strong>strong foundation</strong>. This checklist covers the six pillars every small business needs to show up professionally online, attract the right clients, and convert visitors into leads. Work through each section and check off what you have — then use the gaps as your action plan.</p>
+</div>
+
+<div class="section">
+  <div class="section-header">
+    <div class="section-icon">🌐</div>
+    <div><div class="section-num">Section 01</div><div class="section-title">Website Essentials</div></div>
+  </div>
+  <ul class="checklist">
+    <li><div class="box"></div><div class="text"><strong>Professional domain name</strong><span>e.g. yourbusiness.com — not a free subdomain</span></div></li>
+    <li><div class="box"></div><div class="text"><strong>SSL certificate (HTTPS)</strong><span>The padlock icon in the browser — required for trust & Google ranking</span></div></li>
+    <li><div class="box"></div><div class="text"><strong>Clear homepage message</strong><span>Visitors should know what you do and who you serve in 5 seconds</span></div></li>
+    <li><div class="box"></div><div class="text"><strong>Contact form or booking link</strong><span>Make it easy for leads to reach you without hunting</span></div></li>
+    <li><div class="box"></div><div class="text"><strong>Mobile-friendly design</strong><span>Over 60% of web traffic is on phones — test yours!</span></div></li>
+    <li><div class="box"></div><div class="text"><strong>Fast load time</strong><span>Pages should load in under 3 seconds or visitors leave</span></div></li>
+  </ul>
+  <div class="tip"><strong>Pro Tip:</strong> Test your site speed for free at pagespeed.web.dev — Google uses this to rank your site.</div>
+</div>
+
+<div class="section">
+  <div class="section-header">
+    <div class="section-icon">📱</div>
+    <div><div class="section-num">Section 02</div><div class="section-title">Social Media Setup</div></div>
+  </div>
+  <ul class="checklist">
+    <li><div class="box"></div><div class="text"><strong>Consistent username across platforms</strong><span>Same handle on Instagram, Facebook, LinkedIn</span></div></li>
+    <li><div class="box"></div><div class="text"><strong>Professional profile photo</strong><span>Clear headshot or branded logo — no blurry selfies</span></div></li>
+    <li><div class="box"></div><div class="text"><strong>Complete bio with keywords</strong><span>Who you help, what you do, and a call to action</span></div></li>
+    <li><div class="box"></div><div class="text"><strong>Link in bio points to your website</strong><span>Or a Linktree with your key pages</span></div></li>
+    <li><div class="box"></div><div class="text"><strong>Branded cover photo</strong><span>Facebook and LinkedIn banners should reflect your brand</span></div></li>
+    <li><div class="box"></div><div class="text"><strong>Pinned post or highlight reel</strong><span>First thing people see should showcase your best work</span></div></li>
+  </ul>
+  <div class="tip"><strong>Pro Tip:</strong> You don't need to be on every platform. Pick 2 where your ideal clients spend time and show up consistently there.</div>
+</div>
+
+<div class="section">
+  <div class="section-header">
+    <div class="section-icon">📧</div>
+    <div><div class="section-num">Section 03</div><div class="section-title">Email & Communication</div></div>
+  </div>
+  <ul class="checklist">
+    <li><div class="box"></div><div class="text"><strong>Professional email address</strong><span>you@yourbusiness.com — not gmail or yahoo</span></div></li>
+    <li><div class="box"></div><div class="text"><strong>Email signature with links</strong><span>Name, title, website, social handles</span></div></li>
+    <li><div class="box"></div><div class="text"><strong>Auto-reply or out-of-office set up</strong><span>Let people know when to expect a response</span></div></li>
+    <li><div class="box"></div><div class="text"><strong>Email marketing platform connected</strong><span>MailerLite, Mailchimp, or Flodesk to build your list</span></div></li>
+    <li><div class="box"></div><div class="text"><strong>Welcome email sequence</strong><span>At least 1 email that goes out when someone subscribes</span></div></li>
+  </ul>
+  <div class="tip"><strong>Pro Tip:</strong> Your email list is the only audience you truly own. Social media can disappear overnight — your list is yours forever.</div>
+</div>
+
+<div class="section">
+  <div class="section-header">
+    <div class="section-icon">📅</div>
+    <div><div class="section-num">Section 04</div><div class="section-title">Content Planning</div></div>
+  </div>
+  <ul class="checklist">
+    <li><div class="box"></div><div class="text"><strong>Defined content pillars (3–5 topics)</strong><span>What themes will you consistently post about?</span></div></li>
+    <li><div class="box"></div><div class="text"><strong>Posting schedule</strong><span>Even 2x per week is better than sporadic bursts</span></div></li>
+    <li><div class="box"></div><div class="text"><strong>Content bank (10+ ideas ready)</strong><span>So you never stare at a blank screen wondering what to post</span></div></li>
+    <li><div class="box"></div><div class="text"><strong>Brand templates in Canva</strong><span>Consistent colors, fonts, and layouts for every post</span></div></li>
+    <li><div class="box"></div><div class="text"><strong>Monthly content calendar</strong><span>Plan at least 2 weeks ahead to reduce stress</span></div></li>
+  </ul>
+  <div class="tip"><strong>Pro Tip:</strong> Batch your content creation — set aside 2 hours once a week to create a week's worth of posts at once.</div>
+</div>
+
+<div class="section">
+  <div class="section-header">
+    <div class="section-icon">🛠️</div>
+    <div><div class="section-num">Section 05</div><div class="section-title">Tools & Tech Stack</div></div>
+  </div>
+  <ul class="checklist">
+    <li><div class="box"></div><div class="text"><strong>Project management tool</strong><span>Notion, Trello, or Asana to track tasks and client work</span></div></li>
+    <li><div class="box"></div><div class="text"><strong>Scheduling tool for social media</strong><span>Buffer, Later, or Meta Business Suite</span></div></li>
+    <li><div class="box"></div><div class="text"><strong>Online booking or scheduling link</strong><span>Calendly or Google Calendar appointment booking</span></div></li>
+    <li><div class="box"></div><div class="text"><strong>CRM or client tracker</strong><span>Even a simple spreadsheet to track leads and clients</span></div></li>
+    <li><div class="box"></div><div class="text"><strong>Cloud storage for assets</strong><span>Google Drive or Dropbox for logos, photos, documents</span></div></li>
+    <li><div class="box"></div><div class="text"><strong>Analytics tracking</strong><span>Google Analytics on your website to track visitors</span></div></li>
+  </ul>
+  <div class="tip"><strong>Pro Tip:</strong> Start simple. You don't need every tool — pick one for each category and master it before adding more.</div>
+</div>
+
+<div class="section">
+  <div class="section-header">
+    <div class="section-icon">📍</div>
+    <div><div class="section-num">Section 06</div><div class="section-title">Visibility & Local Presence</div></div>
+  </div>
+  <ul class="checklist">
+    <li><div class="box"></div><div class="text"><strong>Google Business Profile claimed & complete</strong><span>Free listing that shows up in Google Maps and local search</span></div></li>
+    <li><div class="box"></div><div class="text"><strong>Business listed in local directories</strong><span>Yelp, Chamber of Commerce, industry directories</span></div></li>
+    <li><div class="box"></div><div class="text"><strong>Reviews actively requested</strong><span>Ask happy clients for Google or Facebook reviews</span></div></li>
+    <li><div class="box"></div><div class="text"><strong>SEO basics on your website</strong><span>Page titles, descriptions, and keywords that match what clients search</span></div></li>
+    <li><div class="box"></div><div class="text"><strong>Consistent NAP (Name, Address, Phone)</strong><span>Same info everywhere online — Google uses this for ranking</span></div></li>
+  </ul>
+  <div class="tip"><strong>Pro Tip:</strong> Google Business Profile is one of the most powerful free tools available. If you haven't claimed yours yet, do it today at business.google.com.</div>
+</div>
+
+<div class="cta">
+  <h2>Ready to Build Your Digital Foundation?</h2>
+  <p>If you found gaps in your checklist, that's okay — that's exactly what we're here for. Book a free Discovery Call and let's map out your digital strategy together.</p>
+  <a href="https://calendar.app.google/LJT" class="btn">Book Your Free Discovery Call →</a>
+  <p class="contact">eloquentdigitalmarketing.net · breona@eloquentdigitalmarketing.net</p>
+</div>
+
+<div class="footer">© 2025 Eloquent Digital · All rights reserved · eloquentdigitalmarketing.net</div>
+
+</body>
+</html>
