@@ -396,6 +396,101 @@ section{padding:2.2rem 1.3rem;width:100%}
 
 
 
+
+<footer style="background:var(--sage-dk);padding:2rem 1.3rem;text-align:center">
+  <div style="font-family:'Playfair Display',serif;font-size:1rem;color:var(--tan);font-weight:700">Eloquent Digital Solutions</div>
+  <div style="font-size:.69rem;color:rgba(245,240,232,.5);margin-top:.3rem">Breona Clawson, Founder &middot; Your Digital Operations Partner</div>
+  <div style="font-size:.69rem;color:rgba(245,240,232,.4);margin-top:.2rem;margin-bottom:1.2rem">&#x1F4CD; 220 S Main Street, Royal Oak, MI 48067 &middot; Metro Detroit, MI</div>
+  <div style="display:flex;gap:.85rem;flex-wrap:wrap;justify-content:center;margin-bottom:.9rem">
+    <a href="#" onclick="go('home')" style="font-size:.72rem;color:rgba(245,240,232,.5);text-decoration:none">Home</a>
+    <a href="#" onclick="go('services')" style="font-size:.72rem;color:rgba(245,240,232,.5);text-decoration:none">Services</a>
+    <a href="#" onclick="go('focusflow')" style="font-size:.72rem;color:rgba(245,240,232,.5);text-decoration:none">Focus Flow Hub</a>
+    <a href="#" onclick="go('digitallab')" style="font-size:.72rem;color:rgba(245,240,232,.5);text-decoration:none">Digital Lab</a>
+    <a href="#" onclick="go('community')" style="font-size:.72rem;color:rgba(245,240,232,.5);text-decoration:none">Community</a>
+    <a href="#" onclick="go('resources')" style="font-size:.72rem;color:rgba(245,240,232,.5);text-decoration:none">Resources</a>
+    <a href="#" onclick="go('process')" style="font-size:.72rem;color:rgba(245,240,232,.5);text-decoration:none">How We Work</a>
+    <a href="#" onclick="go('contact')" style="font-size:.72rem;color:rgba(245,240,232,.5);text-decoration:none">Contact</a>
+    <a href="https://www.linkedin.com/in/breonaclawson/" target="_blank" style="font-size:.72rem;color:rgba(245,240,232,.5);text-decoration:none">LinkedIn</a>
+  </div>
+  <div style="font-size:.65rem;color:rgba(245,240,232,.25)">&copy; 2025 Eloquent Digital Solutions</div>
+</footer>
+
+</div>
+
+<script>
+document.documentElement.classList.add('js-loaded');
+
+// Timeline scroll animation
+function initTimeline(){
+  var items=document.querySelectorAll('.tl-item');
+  if(!items.length)return;
+  var obs=new IntersectionObserver(function(entries){
+    entries.forEach(function(e,i){
+      if(e.isIntersecting){e.target.classList.add('tl-on');obs.unobserve(e.target);}
+    });
+  },{threshold:.15});
+  items.forEach(function(el){obs.observe(el);});
+}
+document.addEventListener('DOMContentLoaded',initTimeline);
+function openMenu(){
+  document.getElementById('overlay').style.display='block';
+  document.body.style.overflow='hidden';
+}
+function closeMenu(){
+  document.getElementById('overlay').style.display='none';
+  document.body.style.overflow='';
+}
+function submitContactForm(){
+  var name=document.getElementById('cf-name').value.trim();
+  var email=document.getElementById('cf-email').value.trim();
+  var service=document.getElementById('cf-service').value;
+  var message=document.getElementById('cf-message').value.trim();
+  var err=document.getElementById('cf-error');
+  var suc=document.getElementById('cf-success');
+  err.style.display='none';suc.style.display='none';
+  if(!name||!email||!message){err.style.display='block';err.textContent='Please fill in your name, email, and message.';return;}
+  var sub=document.getElementById('cf-submit');
+  sub.textContent='Sending...';sub.disabled=true;
+  var body='Name: '+name+'\nEmail: '+email+'\nPhone: '+(document.getElementById('cf-phone').value||'N/A')+'\nService: '+(service||'N/A')+'\nMessage: '+message;
+  fetch('https://formspree.io/f/xpwzwbyz',{method:'POST',headers:{'Content-Type':'application/json','Accept':'application/json'},body:JSON.stringify({name:name,email:email,message:body})})
+  .then(function(r){
+    if(r.ok){suc.style.display='block';document.getElementById('cf-name').value='';document.getElementById('cf-email').value='';document.getElementById('cf-phone').value='';document.getElementById('cf-service').value='';document.getElementById('cf-message').value='';}
+    else{err.style.display='block';err.textContent='Something went wrong. Please email breona@eloquentdigitalmarketing.net directly.';}
+    sub.textContent='Send Message →';sub.disabled=false;
+  }).catch(function(){err.style.display='block';err.textContent='Something went wrong. Please email breona@eloquentdigitalmarketing.net directly.';sub.textContent='Send Message →';sub.disabled=false;});
+}
+function go(page){
+  // Hide all pages
+  var allPages = document.querySelectorAll('.page');
+  allPages.forEach(function(p){
+    p.style.display='none';
+    p.classList.remove('active');
+  });
+  // Show target page
+  var target = document.getElementById('page-'+page);
+  if(target){
+    target.style.display='block';
+    target.classList.add('active');
+    window.scrollTo(0,0);
+    reRunReveal();
+    initTimeline();
+  }
+  closeMenu();
+}
+var obs=new IntersectionObserver(function(e){e.forEach(function(x){if(x.isIntersecting)x.target.classList.add('on')})},{threshold:.1});
+document.querySelectorAll('.reveal').forEach(function(el){obs.observe(el)});
+// Re-run reveal on page navigation
+function reRunReveal(){
+  var els = document.querySelectorAll('.page.active .reveal');
+  els.forEach(function(el){ el.classList.remove('on'); });
+  setTimeout(function(){
+    var obs2=new IntersectionObserver(function(e){e.forEach(function(x){if(x.isIntersecting)x.target.classList.add('on')})},{threshold:.1});
+    document.querySelectorAll('.page.active .reveal').forEach(function(el){obs2.observe(el)});
+  },100);
+}
+</script>
+
+
 <!-- ═══════════════ PROCESS PAGE ═══════════════ -->
 <div id="page-process" class="page" style="display:none;padding-top:56px">
 
@@ -569,101 +664,6 @@ section{padding:2.2rem 1.3rem;width:100%}
   </section>
 
 </div>
-
-<footer style="background:var(--sage-dk);padding:2rem 1.3rem;text-align:center">
-  <div style="font-family:'Playfair Display',serif;font-size:1rem;color:var(--tan);font-weight:700">Eloquent Digital Solutions</div>
-  <div style="font-size:.69rem;color:rgba(245,240,232,.5);margin-top:.3rem">Breona Clawson, Founder &middot; Your Digital Operations Partner</div>
-  <div style="font-size:.69rem;color:rgba(245,240,232,.4);margin-top:.2rem;margin-bottom:1.2rem">&#x1F4CD; 220 S Main Street, Royal Oak, MI 48067 &middot; Metro Detroit, MI</div>
-  <div style="display:flex;gap:.85rem;flex-wrap:wrap;justify-content:center;margin-bottom:.9rem">
-    <a href="#" onclick="go('home')" style="font-size:.72rem;color:rgba(245,240,232,.5);text-decoration:none">Home</a>
-    <a href="#" onclick="go('services')" style="font-size:.72rem;color:rgba(245,240,232,.5);text-decoration:none">Services</a>
-    <a href="#" onclick="go('focusflow')" style="font-size:.72rem;color:rgba(245,240,232,.5);text-decoration:none">Focus Flow Hub</a>
-    <a href="#" onclick="go('digitallab')" style="font-size:.72rem;color:rgba(245,240,232,.5);text-decoration:none">Digital Lab</a>
-    <a href="#" onclick="go('community')" style="font-size:.72rem;color:rgba(245,240,232,.5);text-decoration:none">Community</a>
-    <a href="#" onclick="go('resources')" style="font-size:.72rem;color:rgba(245,240,232,.5);text-decoration:none">Resources</a>
-    <a href="#" onclick="go('process')" style="font-size:.72rem;color:rgba(245,240,232,.5);text-decoration:none">How We Work</a>
-    <a href="#" onclick="go('contact')" style="font-size:.72rem;color:rgba(245,240,232,.5);text-decoration:none">Contact</a>
-    <a href="https://www.linkedin.com/in/breonaclawson/" target="_blank" style="font-size:.72rem;color:rgba(245,240,232,.5);text-decoration:none">LinkedIn</a>
-  </div>
-  <div style="font-size:.65rem;color:rgba(245,240,232,.25)">&copy; 2025 Eloquent Digital Solutions</div>
-</footer>
-
-</div>
-
-<script>
-document.documentElement.classList.add('js-loaded');
-
-// Timeline scroll animation
-function initTimeline(){
-  var items=document.querySelectorAll('.tl-item');
-  if(!items.length)return;
-  var obs=new IntersectionObserver(function(entries){
-    entries.forEach(function(e,i){
-      if(e.isIntersecting){e.target.classList.add('tl-on');obs.unobserve(e.target);}
-    });
-  },{threshold:.15});
-  items.forEach(function(el){obs.observe(el);});
-}
-document.addEventListener('DOMContentLoaded',initTimeline);
-function openMenu(){
-  document.getElementById('overlay').style.display='block';
-  document.body.style.overflow='hidden';
-}
-function closeMenu(){
-  document.getElementById('overlay').style.display='none';
-  document.body.style.overflow='';
-}
-function submitContactForm(){
-  var name=document.getElementById('cf-name').value.trim();
-  var email=document.getElementById('cf-email').value.trim();
-  var service=document.getElementById('cf-service').value;
-  var message=document.getElementById('cf-message').value.trim();
-  var err=document.getElementById('cf-error');
-  var suc=document.getElementById('cf-success');
-  err.style.display='none';suc.style.display='none';
-  if(!name||!email||!message){err.style.display='block';err.textContent='Please fill in your name, email, and message.';return;}
-  var sub=document.getElementById('cf-submit');
-  sub.textContent='Sending...';sub.disabled=true;
-  var body='Name: '+name+'\nEmail: '+email+'\nPhone: '+(document.getElementById('cf-phone').value||'N/A')+'\nService: '+(service||'N/A')+'\nMessage: '+message;
-  fetch('https://formspree.io/f/xpwzwbyz',{method:'POST',headers:{'Content-Type':'application/json','Accept':'application/json'},body:JSON.stringify({name:name,email:email,message:body})})
-  .then(function(r){
-    if(r.ok){suc.style.display='block';document.getElementById('cf-name').value='';document.getElementById('cf-email').value='';document.getElementById('cf-phone').value='';document.getElementById('cf-service').value='';document.getElementById('cf-message').value='';}
-    else{err.style.display='block';err.textContent='Something went wrong. Please email breona@eloquentdigitalmarketing.net directly.';}
-    sub.textContent='Send Message →';sub.disabled=false;
-  }).catch(function(){err.style.display='block';err.textContent='Something went wrong. Please email breona@eloquentdigitalmarketing.net directly.';sub.textContent='Send Message →';sub.disabled=false;});
-}
-function go(page){
-  // Hide all pages
-  var allPages = document.querySelectorAll('.page');
-  allPages.forEach(function(p){
-    p.style.display='none';
-    p.classList.remove('active');
-  });
-  // Show target page
-  var target = document.getElementById('page-'+page);
-  if(target){
-    target.style.display='block';
-    target.classList.add('active');
-    window.scrollTo(0,0);
-    reRunReveal();
-    initTimeline();
-  }
-  closeMenu();
-}
-var obs=new IntersectionObserver(function(e){e.forEach(function(x){if(x.isIntersecting)x.target.classList.add('on')})},{threshold:.1});
-document.querySelectorAll('.reveal').forEach(function(el){obs.observe(el)});
-// Re-run reveal on page navigation
-function reRunReveal(){
-  var els = document.querySelectorAll('.page.active .reveal');
-  els.forEach(function(el){ el.classList.remove('on'); });
-  setTimeout(function(){
-    var obs2=new IntersectionObserver(function(e){e.forEach(function(x){if(x.isIntersecting)x.target.classList.add('on')})},{threshold:.1});
-    document.querySelectorAll('.page.active .reveal').forEach(function(el){obs2.observe(el)});
-  },100);
-}
-</script>
-
-
 <!-- ═══════════════ ABOUT PAGE ═══════════════ -->
 <div id="page-about" class="page" style="display:none;padding-top:56px">
   <div class="ph-bar">
