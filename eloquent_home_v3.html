@@ -158,6 +158,27 @@ section{padding:2.2rem 1.3rem;width:100%}
 .event-meta{font-size:.75rem;color:rgba(245,240,232,.5)}
 .ff-pill{display:inline-block;background:rgba(215,189,163,.15);color:var(--tan);border:1px solid rgba(215,189,163,.25);border-radius:100px;font-size:.7rem;padding:.3rem .8rem;margin:.25rem;font-weight:600}
 
+/* Process page */
+.proc-hero{background:linear-gradient(150deg,#2d3a2e 0%,#3d4435 60%,#2a3028 100%);padding:4.5rem 1.3rem 3.5rem;position:relative;overflow:hidden}
+.proc-step{display:grid;grid-template-columns:48px 1fr;gap:1rem;padding:2rem 1.3rem;border-bottom:1px solid var(--bdr);position:relative}
+.proc-step:last-child{border-bottom:none}
+.proc-num{width:48px;height:48px;border-radius:50%;background:var(--sage-dk);color:var(--tan);font-family:'Playfair Display',serif;font-size:1.1rem;font-weight:700;display:flex;align-items:center;justify-content:center;flex-shrink:0;margin-top:.1rem}
+.proc-step-title{font-family:'Playfair Display',serif;font-size:1.2rem;color:var(--sage-dk);font-weight:700;margin-bottom:.2rem}
+.proc-step-tag{font-size:.72rem;color:var(--sage);font-weight:600;margin-bottom:.6rem;font-style:italic}
+.proc-step-body{font-size:.87rem;color:var(--mut);line-height:1.8;font-weight:300;margin-bottom:.8rem}
+.proc-away{background:var(--cream);border-radius:12px;padding:.7rem 1rem;font-size:.78rem;color:var(--sage-dk);line-height:1.5}
+.proc-away strong{display:block;font-size:.65rem;letter-spacing:.1em;text-transform:uppercase;color:var(--sage);font-weight:700;margin-bottom:.2rem}
+.proc-col-list{list-style:none;padding:0;margin:0}
+.proc-col-list li{font-size:.87rem;color:var(--mut);padding:.45rem 0;border-bottom:1px solid var(--bdr);line-height:1.6;padding-left:1.3rem;position:relative}
+.proc-col-list li::before{content:'→';position:absolute;left:0;color:var(--sage);font-weight:700}
+.proc-col-list li:last-child{border-bottom:none}
+.proc-faq-item{border-bottom:1px solid var(--bdr)}
+.proc-faq-q{width:100%;background:none;border:none;text-align:left;padding:1.1rem 0;font-size:.9rem;font-weight:600;color:var(--sage-dk);cursor:pointer;display:flex;justify-content:space-between;align-items:center;gap:.8rem;font-family:'DM Sans',sans-serif}
+.proc-faq-q .faq-icon{font-size:1.1rem;color:var(--sage);flex-shrink:0;transition:transform .25s}
+.proc-faq-a{max-height:0;overflow:hidden;transition:max-height .35s ease,padding .25s}
+.proc-faq-a.open{max-height:200px;padding-bottom:1rem}
+.proc-faq-a p{font-size:.86rem;color:var(--mut);line-height:1.75;margin:0;font-weight:300}
+
 /* Digital Lab page */
 .lab-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:1rem;margin-top:1.2rem}
 .lab-card{background:#fff;border:1px solid var(--bdr);border-radius:16px;padding:1.2rem;text-align:center;transition:transform .2s,box-shadow .2s}
@@ -248,6 +269,7 @@ section{padding:2.2rem 1.3rem;width:100%}
     <a href="#" onclick="go('digitallab');return false;">Digital Lab</a>
     <a href="#" onclick="go('community');return false;">Community</a>
     <a href="#" onclick="go('resources');return false;">Resources</a>
+    <a href="#" onclick="go('process');return false;">How We Work</a>
     <a href="#" onclick="go('contact');return false;">Contact</a>
   </div>
   <div class="nav-right">
@@ -270,6 +292,7 @@ section{padding:2.2rem 1.3rem;width:100%}
   <a href="#" class="ov-link" onclick="go('digitallab')">The Digital Lab</a>
   <a href="#" class="ov-link" onclick="go('focusflow')">Focus Flow Hub</a>
   <a href="#" class="ov-link" onclick="go('community')">Community</a>
+  <a href="#" class="ov-link" onclick="go('process')">How We Work</a>
   <a href="#" class="ov-link" onclick="go('contact')">Contact</a>
   <a href="/client-portal.html" class="ov-cta" style="background:var(--tan);color:var(--sage-dk);margin-top:.7rem" onclick="closeMenu()">Client Portal &rarr;</a>
   <a href="https://calendar.app.google/KDiZEKwycv1eHcot8" target="_blank" class="ov-cta" onclick="closeMenu()">Book a Free Call &rarr;</a>
@@ -373,6 +396,180 @@ section{padding:2.2rem 1.3rem;width:100%}
 
 
 
+<!-- ═══════════════ PROCESS PAGE ═══════════════ -->
+<div id="page-process" class="page" style="display:none;padding-top:56px">
+
+  <!-- HERO -->
+  <div class="proc-hero">
+    <div class="ff-orb" style="width:160px;height:160px;top:-30px;right:-40px;opacity:.3"></div>
+    <div class="ff-orb" style="width:90px;height:90px;bottom:20px;left:10%;animation-delay:1.5s;opacity:.25"></div>
+    <div style="position:relative;z-index:1;max-width:600px">
+      <div style="display:flex;align-items:center;gap:.6rem;margin-bottom:.8rem">
+        <span style="display:block;width:28px;height:1.5px;background:var(--tan);opacity:.7"></span>
+        <span style="font-size:.6rem;letter-spacing:.2em;text-transform:uppercase;color:var(--tan);font-weight:700;opacity:.85">How We Work</span>
+      </div>
+      <h1 style="font-family:'Playfair Display',serif;font-size:clamp(2rem,6vw,3.2rem);color:#f5f0e8;margin:.4rem 0 1rem;line-height:1.1">Every business is different.<br>Our process isn&#39;t.</h1>
+      <p style="font-size:.95rem;color:rgba(245,240,232,.72);line-height:1.85;font-weight:300;margin-bottom:1.8rem;max-width:520px">No two clients get the same set of services, but every client gets the same steps: we listen first, look under the hood, and build only what your business actually needs.</p>
+      <a href="https://calendar.app.google/KDiZEKwycv1eHcot8" target="_blank" class="book-btn" style="display:inline-block;padding:.85rem 1.8rem;font-size:.88rem">Book a Discovery Call &rarr;</a>
+    </div>
+  </div>
+
+  <!-- PHILOSOPHY -->
+  <section style="background:#fff;padding:3rem 1.3rem">
+    <div style="max-width:620px">
+      <div class="eyebrow">Our Philosophy</div>
+      <h2 style="font-family:'Playfair Display',serif;font-size:clamp(1.6rem,4.5vw,2.4rem);color:var(--sage-dk);margin:.5rem 0 1.2rem;line-height:1.2">We start with results and work backward.</h2>
+      <p style="font-size:.9rem;color:var(--mut);line-height:1.85;margin-bottom:.9rem;font-weight:300">Most businesses come to us saying "I need a new website" or "I need someone to run my social media." Sometimes that's true. More often, the real problem is underneath: a booking process that loses people, a team that runs on memory instead of systems, or tools that don't talk to each other.</p>
+      <p style="font-size:.9rem;color:var(--mut);line-height:1.85;font-weight:300">So we don't start by selling you a package. We start by figuring out where you want to be, then map out what has to be true behind the scenes to get you there. That's how we build what your business runs on.</p>
+    </div>
+  </section>
+
+  <!-- THE 5 STEPS -->
+  <section style="background:var(--cream);padding:3rem 0">
+    <div style="padding:0 1.3rem;margin-bottom:1.5rem">
+      <div class="eyebrow">The Process</div>
+      <h2 style="font-family:'Playfair Display',serif;font-size:clamp(1.6rem,4.5vw,2.4rem);color:var(--sage-dk);margin:.5rem 0;line-height:1.2">Five Steps. No Surprises.</h2>
+    </div>
+
+    <div class="proc-step reveal">
+      <div class="proc-num">01</div>
+      <div>
+        <div class="proc-step-title">Discovery Call</div>
+        <div class="proc-step-tag">Let's see if we're the right fit.</div>
+        <div class="proc-step-body">A free conversation about where your business is now, what's frustrating you, and what you want next. You'll tell us what you think you need. We'll ask a lot of questions. By the end, we'll both know whether working together makes sense — and what the best first step would be.</div>
+        <div class="proc-away"><strong>What you walk away with</strong>Clarity on your next move, whether that's with us or not.</div>
+      </div>
+    </div>
+
+    <div class="proc-step reveal">
+      <div class="proc-num">02</div>
+      <div>
+        <div class="proc-step-title">Digital Operations Audit</div>
+        <div class="proc-step-tag">We look at how your business really runs.</div>
+        <div class="proc-step-body">We review two sides of your business: how it runs behind the scenes (your tools, workflows, onboarding, communication, and the tasks eating up your time) and how it shows up for the people you serve (your website, booking, social presence, and customer experience). The audit is fully remote, so we can work with you wherever you are.</div>
+        <div class="proc-away"><strong>What you walk away with</strong>A clear picture of what's working, what's broken, and what's costing you time, money, or clients.</div>
+      </div>
+    </div>
+
+    <div class="proc-step reveal">
+      <div class="proc-num">03</div>
+      <div>
+        <div class="proc-step-title">Your Roadmap</div>
+        <div class="proc-step-tag">A plan built around your business, not a template.</div>
+        <div class="proc-step-body">We turn the audit into a prioritized set of recommendations: what to fix first, what can wait, and what will make the biggest difference. Your roadmap is yours to keep. You can take it and do it yourself, or hire us to bring it to life. If you choose to work with us, we'll put together a proposal with your exact scope, timeline, and investment.</div>
+        <div class="proc-away"><strong>What you walk away with</strong>A step-by-step plan you can act on right away.</div>
+      </div>
+    </div>
+
+    <div class="proc-step reveal">
+      <div class="proc-num">04</div>
+      <div>
+        <div class="proc-step-title">Build &amp; Implement</div>
+        <div class="proc-step-tag">We build the systems so you don't have to.</div>
+        <div class="proc-step-body">This is where the work happens. Depending on what your business needs, that might mean setting up automations, organizing your tools, building onboarding systems for staff or volunteers, refreshing your website, or creating your brand and content foundation. We manage the project from start to finish and pull in trusted specialists when a project calls for them — so you have one point of contact the whole way.</div>
+        <div class="proc-away"><strong>What you walk away with</strong>Working systems, plus the documentation and training your team needs to actually use them.</div>
+      </div>
+    </div>
+
+    <div class="proc-step reveal">
+      <div class="proc-num">05</div>
+      <div>
+        <div class="proc-step-title">Strategy &amp; Ongoing Support</div>
+        <div class="proc-step-tag">Systems work best when someone's watching them.</div>
+        <div class="proc-step-body">Once the foundation is built, we can stay on as your ongoing digital operations partner. That can include monthly strategy check-ins, social media management, system updates as you grow, and add-on support when new needs come up. We keep track of what's working and adjust as your business changes.</div>
+        <div class="proc-away"><strong>What you walk away with</strong>A partner who already knows your business, so you never have to start from scratch.</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- WHO WE WORK WITH -->
+  <section style="background:#fff;padding:3rem 1.3rem">
+    <div class="eyebrow">Who We Work With</div>
+    <h2 style="font-family:'Playfair Display',serif;font-size:clamp(1.6rem,4.5vw,2.4rem);color:var(--sage-dk);margin:.5rem 0 .8rem;line-height:1.2">Same process. Custom work.</h2>
+    <p style="font-size:.9rem;color:var(--mut);line-height:1.85;font-weight:300;margin-bottom:1.8rem;max-width:580px">A coffee shop, a nonprofit, and a speaker all need different things. That's why we don't push one-size-fits-all packages. The process keeps things clear and predictable. The services inside it are built around you.</p>
+    <div style="display:grid;grid-template-columns:1fr;gap:1rem">
+      <div style="background:var(--cream);border-radius:16px;padding:1.4rem;border:1px solid var(--bdr)" class="reveal">
+        <div style="font-size:1.5rem;margin-bottom:.6rem">🏪</div>
+        <div style="font-family:'Playfair Display',serif;font-size:1rem;color:var(--sage-dk);font-weight:700;margin-bottom:.4rem">Small Businesses</div>
+        <div style="font-size:.84rem;color:var(--mut);line-height:1.6">Owners who've outgrown doing everything by hand.</div>
+      </div>
+      <div style="background:var(--cream);border-radius:16px;padding:1.4rem;border:1px solid var(--bdr)" class="reveal">
+        <div style="font-size:1.5rem;margin-bottom:.6rem">🤝</div>
+        <div style="font-family:'Playfair Display',serif;font-size:1rem;color:var(--sage-dk);font-weight:700;margin-bottom:.4rem">Nonprofits &amp; Organizations</div>
+        <div style="font-size:.84rem;color:var(--mut);line-height:1.6">Teams that need structure for staff, volunteers, and programs.</div>
+      </div>
+      <div style="background:var(--cream);border-radius:16px;padding:1.4rem;border:1px solid var(--bdr)" class="reveal">
+        <div style="font-size:1.5rem;margin-bottom:.6rem">🎤</div>
+        <div style="font-family:'Playfair Display',serif;font-size:1rem;color:var(--sage-dk);font-weight:700;margin-bottom:.4rem">Creatives &amp; Personal Brands</div>
+        <div style="font-size:.84rem;color:var(--mut);line-height:1.6">Founders, speakers, and creators who need their back end to match their talent.</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- WHAT TO EXPECT -->
+  <section style="background:var(--sage-dk);padding:3rem 1.3rem">
+    <h2 style="font-family:'Playfair Display',serif;font-size:clamp(1.6rem,4.5vw,2.4rem);color:#f5f0e8;margin:0 0 1.5rem;line-height:1.2">What working together feels like</h2>
+    <div style="display:grid;grid-template-columns:1fr;gap:2rem">
+      <div>
+        <div style="font-size:.6rem;letter-spacing:.18em;text-transform:uppercase;color:var(--tan);font-weight:700;margin-bottom:1rem">From Us</div>
+        <ul class="proc-col-list" style="--col-color:#f5f0e8">
+          <li style="color:rgba(245,240,232,.8);border-color:rgba(245,240,232,.12)">One point of contact from start to finish</li>
+          <li style="color:rgba(245,240,232,.8);border-color:rgba(245,240,232,.12)">Plain-language explanations, no tech jargon</li>
+          <li style="color:rgba(245,240,232,.8);border-color:rgba(245,240,232,.12)">Clear timelines and regular progress updates</li>
+          <li style="color:rgba(245,240,232,.8);border-color:rgba(245,240,232,.12)">Documentation you keep, even after we&#39;re done</li>
+          <li style="color:rgba(245,240,232,.8);border-color:rgba(245,240,232,.12)">Honest advice, even when it&#39;s "you don&#39;t need that yet"</li>
+        </ul>
+      </div>
+      <div>
+        <div style="font-size:.6rem;letter-spacing:.18em;text-transform:uppercase;color:var(--tan);font-weight:700;margin-bottom:1rem">From You</div>
+        <ul class="proc-col-list">
+          <li style="color:rgba(245,240,232,.8);border-color:rgba(245,240,232,.12)">Openness about what&#39;s working and what isn&#39;t</li>
+          <li style="color:rgba(245,240,232,.8);border-color:rgba(245,240,232,.12)">Access to the tools and accounts we&#39;ll be working in</li>
+          <li style="color:rgba(245,240,232,.8);border-color:rgba(245,240,232,.12)">Timely feedback so projects stay on track</li>
+          <li style="color:rgba(245,240,232,.8);border-color:rgba(245,240,232,.12)">A willingness to try new ways of doing things</li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <!-- FAQ -->
+  <section style="background:var(--cream);padding:3rem 1.3rem">
+    <div class="eyebrow">FAQ</div>
+    <h2 style="font-family:'Playfair Display',serif;font-size:clamp(1.6rem,4.5vw,2.4rem);color:var(--sage-dk);margin:.5rem 0 1.5rem;line-height:1.2">Questions We Hear a Lot</h2>
+    <div class="proc-faq-item">
+      <button class="proc-faq-q" onclick="toggleFaq(this)">Do I have to sign up for everything at once? <span class="faq-icon">+</span></button>
+      <div class="proc-faq-a"><p>No. Every client starts with a discovery call, and most start with an audit. From there, you decide how much support you want.</p></div>
+    </div>
+    <div class="proc-faq-item">
+      <button class="proc-faq-q" onclick="toggleFaq(this)">What if I just want the audit and roadmap? <span class="faq-icon">+</span></button>
+      <div class="proc-faq-a"><p>That&#39;s completely fine. The roadmap is built so you can act on it yourself. Many clients start that way and come back when they&#39;re ready for help.</p></div>
+    </div>
+    <div class="proc-faq-item">
+      <button class="proc-faq-q" onclick="toggleFaq(this)">Do you only work with businesses in Metro Detroit? <span class="faq-icon">+</span></button>
+      <div class="proc-faq-a"><p>We&#39;re based in Metro Detroit, but our audits and most of our work are done remotely, so we work with clients wherever they are.</p></div>
+    </div>
+    <div class="proc-faq-item">
+      <button class="proc-faq-q" onclick="toggleFaq(this)">How long does the process take? <span class="faq-icon">+</span></button>
+      <div class="proc-faq-a"><p>It depends on scope. Audits and roadmaps usually move quickly, and build timelines are set in your proposal before any work begins, so you&#39;ll always know what to expect.</p></div>
+    </div>
+    <div class="proc-faq-item">
+      <button class="proc-faq-q" onclick="toggleFaq(this)">I&#39;m not "techy." Is this still for me? <span class="faq-icon">+</span></button>
+      <div class="proc-faq-a"><p>Absolutely. Translating technical stuff into plain language is a big part of what we do. You don&#39;t need to know how it works. You just need to know it works.</p></div>
+    </div>
+  </section>
+
+  <!-- CLOSING CTA -->
+  <section style="background:var(--tan);padding:3.5rem 1.3rem;text-align:center">
+    <h2 style="font-family:'Playfair Display',serif;font-size:clamp(1.6rem,4.5vw,2.4rem);color:var(--sage-dk);margin:0 0 .8rem;line-height:1.2">Ready to see what&#39;s happening behind the scenes?</h2>
+    <p style="font-size:.9rem;color:var(--sage-dk);opacity:.8;line-height:1.75;font-weight:300;max-width:480px;margin:0 auto 1.6rem">Book a free discovery call and let&#39;s talk about where your business is headed — and what it&#39;ll take to get there.</p>
+    <a href="https://calendar.app.google/KDiZEKwycv1eHcot8" target="_blank" class="book-btn" style="display:inline-block;padding:.9rem 2rem;font-size:.9rem;background:var(--sage-dk);margin-bottom:1rem">Book a Discovery Call &rarr;</a>
+    <div style="margin-top:.6rem">
+      <a href="mailto:eloquentdigitalsolutions@gmail.com" style="font-size:.82rem;color:var(--sage-dk);opacity:.7;text-decoration:underline">Or email us at eloquentdigitalsolutions@gmail.com</a>
+    </div>
+  </section>
+
+</div>
+
 <footer style="background:var(--sage-dk);padding:2rem 1.3rem;text-align:center">
   <div style="font-family:'Playfair Display',serif;font-size:1rem;color:var(--tan);font-weight:700">Eloquent Digital Solutions</div>
   <div style="font-size:.69rem;color:rgba(245,240,232,.5);margin-top:.3rem">Breona Clawson, Founder &middot; Your Digital Operations Partner</div>
@@ -384,6 +581,7 @@ section{padding:2.2rem 1.3rem;width:100%}
     <a href="#" onclick="go('digitallab')" style="font-size:.72rem;color:rgba(245,240,232,.5);text-decoration:none">Digital Lab</a>
     <a href="#" onclick="go('community')" style="font-size:.72rem;color:rgba(245,240,232,.5);text-decoration:none">Community</a>
     <a href="#" onclick="go('resources')" style="font-size:.72rem;color:rgba(245,240,232,.5);text-decoration:none">Resources</a>
+    <a href="#" onclick="go('process')" style="font-size:.72rem;color:rgba(245,240,232,.5);text-decoration:none">How We Work</a>
     <a href="#" onclick="go('contact')" style="font-size:.72rem;color:rgba(245,240,232,.5);text-decoration:none">Contact</a>
     <a href="https://www.linkedin.com/in/breonaclawson/" target="_blank" style="font-size:.72rem;color:rgba(245,240,232,.5);text-decoration:none">LinkedIn</a>
   </div>
@@ -1091,6 +1289,17 @@ function reRunReveal(){
   el.addEventListener('touchstart',function(e){touchStart=e.touches[0].pageX-el.offsetLeft;touchScrollLeft=el.scrollLeft},{passive:true});
   el.addEventListener('touchmove',function(e){var x=e.touches[0].pageX-el.offsetLeft;el.scrollLeft=touchScrollLeft-(x-touchStart)*1.5},{passive:true});
 })();
+// FAQ accordion
+function toggleFaq(btn){
+  var answer=btn.nextElementSibling;
+  var icon=btn.querySelector('.faq-icon');
+  var isOpen=answer.classList.contains('open');
+  document.querySelectorAll('.proc-faq-a.open').forEach(function(a){
+    a.classList.remove('open');
+    a.previousElementSibling.querySelector('.faq-icon').textContent='+';
+  });
+  if(!isOpen){answer.classList.add('open');icon.textContent='−';}
+}
 // Focus Flow photo carousel auto-scroll
 (function(){
   var track=document.getElementById('ff-carousel-track');
